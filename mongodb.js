@@ -39,12 +39,27 @@ MongoClient.connect(connectionURL,{useNewUrlParser:true},(error,client)=>{
 //     })
 
 
-db.collection('users').find({age:56}).toArray((error,user)=>{
-    if(error){
-        console.log('unable')
-    }else{
-        console.log(user)
+// db.collection('users').find({age:56}).toArray((error,user)=>{
+//     if(error){
+//         console.log('unable')
+//     }else{
+//         console.log(user)
+//     }
+// })
+
+
+const updatePromise=db.collection('users').updateOne({
+    _id:new ObjectId('5fac4584fb622e4e944c323e')
+},{
+    $set:{
+        name:'martin'
     }
+})
+
+updatePromise.then((result)=>{
+    console.log(result)
+}).catch((error)=>{
+    console.log(error)
 })
 
  })
