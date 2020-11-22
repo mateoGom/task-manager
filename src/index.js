@@ -1,6 +1,4 @@
 require("./db/mongoose");
-const User = require("./models/users");
-
 const express = require("express");
 const userRouter=require('./routers/user')
 const app = express();
