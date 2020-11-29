@@ -96,7 +96,7 @@ router.post("/users", async (req, res) => {
     try {
       const user = await User.findByIdAndDelete(req.params.id);
       if (!user) {
-        res.status(404);
+        res.status(404).send('User not found');
       }
       res.send(user);
     } catch (error) {
